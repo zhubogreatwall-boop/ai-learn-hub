@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --border: #ececec;
+  --text: #1a1a1a;
+  --text-secondary: #666;
+  --accent: #2563eb;
+  --accent-light: #eff4ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 顶部导航 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.nav-link:hover {
+  color: var(--accent);
+  background: var(--accent-light);
+}
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 卡片 */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.15s;
+}
+.card:hover {
+  border-color: #d8d8d8;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 500;
+}
+.tag-gray {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+.tag-hot {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* 热度数字 */
+.heat {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 摘要 */
+.summary {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* 版心 */
+.container-site {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 页脚 */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+  padding: 32px 0;
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+}
