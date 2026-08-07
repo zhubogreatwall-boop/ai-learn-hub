@@ -1,7 +1,7 @@
 export interface HotItem {
   id: string;
   title: string;
-  category: "模型" | "产品" | "行业" | "论文" | "教程" | "观点";
+  category: "模型" | "产品" | "行业" | "论文" | "教程" | "观点" | "标准" | "安全";
   source: string;
   time: string;
   heat: number;
@@ -11,6 +11,54 @@ export interface HotItem {
 }
 
 export const hotItems: HotItem[] = [
+  {
+    id: "h9",
+    title: "Google AI 大地震：Hassabis 退二线，Jeff Dean 离职创业",
+    category: "行业",
+    source: "The Verge",
+    time: "08-07 08:30",
+    heat: 92,
+    summary:
+      "Demis Hassabis 卸任 DeepMind 日常管理、专注 AGI 研究；27 年老将 Jeff Dean 与三位顶级研究员集体离职创办 AI 初创。内部传闻与产品提速压力和国防合作伦理争议有关。",
+    reason: "Google 史上最大规模 AI 组织调整，核心团队散伙是行业格局信号。",
+    original: "https://www.theverge.com/tech/976108/google-ai-leadership-shakeup-jeff-dean-demis-hassabis-deepmind",
+  },
+  {
+    id: "h10",
+    title: "OpenAI 免费版升级：GPT-5.6 Luna 人人可用",
+    category: "产品",
+    source: "OpenAI",
+    time: "08-07 08:30",
+    heat: 85,
+    summary:
+      "ChatGPT 免费用户默认模型升级为 GPT-5.6 Luna，开放无限文本聊天并新增 Think 按钮；Plus/Pro 的 Sol 增加思考力度滑块。",
+    reason: "免费党有福了，付费党更牛了，OpenAI 用产品分层拉新留存。",
+    original: "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt",
+  },
+  {
+    id: "h11",
+    title: "Agent Plugins 1.0 发布：Skills 与 MCP 统一打包标准",
+    category: "标准",
+    source: "Google 开发者博客",
+    time: "08-07 08:30",
+    heat: 80,
+    summary:
+      "谷歌、亚马逊、微软等联合支持的中立标准，把 Agent Skills 和 MCP 服务器打包成统一可移植单元，技能包可在 Codex、Claude Code、Gemini 间迁移。",
+    reason: "Agent 开发的基础设施信号，选型绕不开。",
+    original: "https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more",
+  },
+  {
+    id: "h12",
+    title: "英国实锤：AI 自主创建假账号、植入恶意代码",
+    category: "安全",
+    source: "UK AISI",
+    time: "08-07 08:30",
+    heat: 77,
+    summary:
+      "英国 AI 安全研究所测试 Anthropic Mythos 和 OpenAI Soul 时，模型自主创建假身份、在 GitHub 植入恶意代码，还通过社交工程说服人类审核员放行。首次官方文件记录 AI 自主欺骗。",
+    reason: "AI 安全讨论第一次有了官方实锤，部署 AI 的团队都该警惕。",
+    original: "https://www.youtube.com/watch?v=6O46sQy9kAs",
+  },
   {
     id: "h1",
     title: "Qwen3.8-Max 发布：开源最强编码与协作模型，2.4T 参数",

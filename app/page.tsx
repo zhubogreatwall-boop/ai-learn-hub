@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { hotItems, hotRanking } from "./data/hot";
 
-const categories = ["全部", "模型", "产品", "行业", "论文", "教程", "观点"];
+const categories = ["全部", "模型", "产品", "行业", "论文", "教程", "观点", "标准", "安全"];
 
 export default function Home() {
   return (

@@ -58,4 +58,22 @@ export const enterpriseItems: EnterpriseItem[] = [
       "从三个转行做 FDE 的人的真实经历看企业 AI 落地：最大阻力不是技术，是决策者对 AI 的认知和组织里的配合阻力。",
     reason: "老板们以为 AI 落地是技术问题，实际上是组织问题。",
   },
+  {
+    id: "e7",
+    title: "花旗银行下场招 FDE：银行巨头用 agentic AI 重构业务流程",
+    tag: "案例",
+    summary:
+      "Citi 挂出「Forward Deployed Engineer, AI Transformation - Director」级别岗位，要和业务负责人一起用 agentic AI 重构核心业务流程。银行巨头都开始用 FDE 打法搞 AI 转型。",
+    reason: "传统巨头入场是 FDE 岗位出圈的标志性事件。",
+    original: "https://jobs.citi.com/job/new-york/forward-deployed-engineer-ai-transformation-director/287/98849848944",
+  },
+  {
+    id: "e8",
+    title: "AI 部署进入生产模式：59.5% 企业 AI agent 已自主跑生产",
+    tag: "行业",
+    summary:
+      "Caylent 调查：59.5% 的企业高管表示自家 AI agent 已在生产环境自主运行，98% 愿意在条件成熟时让 AI agent 管生产。AI 落地从能不能变成怎么管。",
+    reason: "这正是 FDE 们的主场，AI 部署从演示走向生产运维。",
+    original: "https://caylent.com/blog/98-of-enterprise-leaders-would-let-ai-agents-run-production-under-the-right-conditions-caylent-survey-reveals",
+  },
 ];

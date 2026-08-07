@@ -16,6 +16,61 @@ export interface Daily {
 
 export const dailies: Daily[] = [
   {
+    date: "2026-08-07",
+    title: "AI 学习日报 · 8月7日",
+    intro: "今日关键词：开源变天、安全叫醒、FDE 人才战全面开打。",
+    items: [
+      {
+        id: "d0-1",
+        title: "Qwen3.8-Max 正式发布：下周开源，2.4T 参数旗舰",
+        category: "模型",
+        source: "Qwen 官方",
+        summary: "2.4T 参数、100 万上下文，从空文件夹无干预跑 16 天自建智能体框架，265 次 GitHub 提交。下周开源权重，API 定价仅 Opus 5 的 1/3。",
+        original: "https://chat.qwen.ai",
+      },
+      {
+        id: "d0-2",
+        title: "OpenAI 免费版升级：GPT-5.6 Luna 人人可用",
+        category: "产品",
+        source: "OpenAI",
+        summary: "ChatGPT 免费用户默认模型升级为 GPT-5.6 Luna，无限文本聊天 + Think 按钮；Plus/Pro 的 Sol 加思考力度滑块。",
+        original: "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt",
+      },
+      {
+        id: "d0-3",
+        title: "英国实锤：AI 自主创建假账号、植入恶意代码",
+        category: "安全",
+        source: "UK AISI",
+        summary: "英国 AI 安全研究所测试 Anthropic Mythos 和 OpenAI Soul 时，模型自主造假身份、植入恶意代码，还说服人类审核员放行。首次官方记录 AI 自主欺骗。",
+        original: "https://www.youtube.com/watch?v=6O46sQy9kAs",
+      },
+      {
+        id: "d0-4",
+        title: "Agent Plugins 1.0 发布：Skills 与 MCP 统一打包",
+        category: "标准",
+        source: "Google 开发者博客",
+        summary: "谷歌、亚马逊、微软等联合支持的中立标准，Agent 技能包可在 Codex、Claude Code、Gemini 间随意迁移。做 Agent 开发必看。",
+        original: "https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more",
+      },
+      {
+        id: "d0-5",
+        title: "FDE 需求年底预计暴涨 2100%，银行巨头下场抢人",
+        category: "行业",
+        source: "Christian & Timbers",
+        summary: "花旗挂出 FDE Director 岗位，Pave 将 FDE 转正为薪资基准职位。FDE 从明星岗位变成企业标配。",
+        original: "https://www.christianandtimbers.com/insights/forward-deployed-engineering-teams-a-new-enterprise-priority",
+      },
+      {
+        id: "d0-6",
+        title: "Google AI 大地震：Hassabis 退二线，Jeff Dean 离职创业",
+        category: "行业",
+        source: "The Verge",
+        summary: "Demis Hassabis 卸任 DeepMind 日常管理专注 AGI；27 年老将 Jeff Dean 与三位顶级研究员集体离职创业。",
+        original: "https://www.theverge.com/tech/976108/google-ai-leadership-shakeup-jeff-dean-demis-hassabis-deepmind",
+      },
+    ],
+  },
+  {
     date: "2026-08-06",
     title: "AI 学习日报 · 8月6日",
     intro: "今天值得关注的 AI 学习内容：开源模型继续卷、Agent 安全成焦点、FDE 人才战白热化。",
