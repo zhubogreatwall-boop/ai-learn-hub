@@ -188,11 +188,11 @@ body {
   line-height: 1.6;
 }
 
-/* 主内容区 max 720px */
+/* 主内容区：与窗口同宽自适应（去掉固定 max-width） */
 .main {
   flex: 1;
-  max-width: 720px;
-  padding: 24px 28px 64px;
+  min-width: 0;
+  padding: 24px 36px 64px;
 }
 
 /* ---------- 移动端布局 ---------- */
@@ -218,7 +218,7 @@ body {
     backdrop-filter: blur(8px);
   }
   .main {
-    max-width: 640px;
+    max-width: 100%;
     padding: 20px 18px 90px;
     margin: 0 auto;
     width: 100%;
