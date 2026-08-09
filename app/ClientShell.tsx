@@ -10,14 +10,14 @@ const navItems = [
   { href: "/fde", label: "FDE 课程", icon: "🧑‍💻" },
   { href: "/enterprise", label: "企业应用", icon: "🏢" },
   { href: "/tools", label: "工具推荐", icon: "🧰" },
-  { href: "/daily", label: "学习日报", icon: "📅" },
+  { href: "/daily", label: "龙虾日记", icon: "🦞" },
 ];
 
 const mobileTabs = [
   { href: "/", label: "热点", icon: "🔥" },
   { href: "/books", label: "书籍", icon: "📚" },
   { href: "/fde", label: "FDE", icon: "🧑‍💻" },
-  { href: "/daily", label: "日报", icon: "📅" },
+  { href: "/daily", label: "日记", icon: "🦞" },
 ];
 
 export default function ClientShell({

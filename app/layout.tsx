@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "AI 学习站",
-  description: "AI 学习导航站：AI热点、必读书籍、FDE课程、企业应用、工具推荐、学习日报",
+  description: "AI 学习导航站：AI热点、必读书籍、FDE课程、企业应用、工具推荐、龙虾日记",
 };
 
 export default function RootLayout({
