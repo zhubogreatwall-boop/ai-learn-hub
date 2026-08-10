@@ -1,12 +1,12 @@
 import { courses } from "../data/course";
 
-const typeMeta: Record<string, { label: string; cls: string; icon: string }> = {
-  concept: { label: "概念", cls: "cb-concept", icon: "📖" },
-  case: { label: "案例", cls: "cb-case", icon: "🟨" },
-  method: { label: "方法", cls: "cb-method", icon: "🟩" },
-  pitfall: { label: "避坑", cls: "cb-pitfall", icon: "🟥" },
-  keypoint: { label: "要点", cls: "cb-keypoint", icon: "⭐" },
-  quote: { label: "金句", cls: "cb-quote", icon: "📌" },
+const typeMeta: Record<string, { label: string; cls: string }> = {
+  concept: { label: "概念", cls: "cb-concept" },
+  case: { label: "案例", cls: "cb-case" },
+  method: { label: "方法", cls: "cb-method" },
+  pitfall: { label: "避坑", cls: "cb-pitfall" },
+  keypoint: { label: "要点", cls: "cb-keypoint" },
+  quote: { label: "金句", cls: "cb-quote" },
 };
 
 export default function CoursePage() {
@@ -40,7 +40,6 @@ export default function CoursePage() {
           return (
             <div key={i} className={`cb ${meta?.cls ?? "cb-concept"}`}>
               <div className="cb-title">
-                <span className="cb-badge">{meta?.icon ?? "▪️"}</span>
                 <span className="cb-label">{meta?.label ?? ""}</span>
                 <span className="cb-title-text">{b.title}</span>
               </div>
@@ -56,7 +55,7 @@ export default function CoursePage() {
 
       {lesson.practice && (
         <div className="card mt-4">
-          <h3 className="font-bold text-[14px] mb-1">✍️ 本期练习</h3>
+          <h3 className="font-bold text-[14px] mb-1">本期练习</h3>
           <div className="space-y-1">
             {lesson.practice.map((p, i) => (
               <p key={i} className="text-[13px] text-[var(--text-primary)] leading-relaxed">
@@ -69,7 +68,7 @@ export default function CoursePage() {
 
       {lesson.next && (
         <div className="mt-4 text-[13px] text-[var(--text-secondary)]">
-          🔗 {lesson.next}
+          下一期 · {lesson.next}
         </div>
       )}
     </div>
