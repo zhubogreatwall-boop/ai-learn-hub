@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "/", label: "热点", icon: "🔥" },
   { href: "/books", label: "必读书籍", icon: "📚" },
+  { href: "/course", label: "图文课程", icon: "🎓" },
   { href: "/fde", label: "FDE 课程", icon: "🧑‍💻" },
   { href: "/enterprise", label: "企业应用", icon: "🏢" },
   { href: "/tools", label: "工具推荐", icon: "🧰" },
@@ -16,6 +17,7 @@ const navItems = [
 const mobileTabs = [
   { href: "/", label: "热点", icon: "🔥" },
   { href: "/books", label: "书籍", icon: "📚" },
+  { href: "/course", label: "课程", icon: "🎓" },
   { href: "/fde", label: "FDE", icon: "🧑‍💻" },
   { href: "/daily", label: "日记", icon: "🦞" },
 ];

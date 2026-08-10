@@ -527,3 +527,61 @@ a.card-title:hover { color: var(--accent); }
   padding: 16px;
   margin-bottom: 10px;
 }
+
+/* ---------- 图文课程 · 彩色语义框 ---------- */
+.cb {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 13px 15px;
+  box-shadow: var(--shadow-card);
+  transition: background 120ms, border-color 120ms;
+}
+.cb-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.cb-badge { font-size: 14px; line-height: 1; }
+.cb-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+}
+.cb-title-text { flex: 1; }
+.cb-body p {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.cb-body p:last-child { margin-bottom: 0; }
+
+/* 概念（蓝） */
+.cb-concept  { border-left: 3px solid #4fa3b3; }
+.cb-concept  .cb-label { background: #4fa3b322; color: #4fa3b3; }
+/* 案例（黄） */
+.cb-case     { border-left: 3px solid #d9a13b; }
+.cb-case     .cb-label { background: #d9a13b22; color: #d9a13b; }
+/* 方法（绿） */
+.cb-method   { border-left: 3px solid #58a65c; }
+.cb-method   .cb-label { background: #58a65c22; color: #58a65c; }
+/* 避坑（红） */
+.cb-pitfall  { border-left: 3px solid #d6534e; }
+.cb-pitfall  .cb-label { background: #d6534e22; color: #d6534e; }
+/* 要点（紫） */
+.cb-keypoint { border-left: 3px solid #8b7fd4; }
+.cb-keypoint .cb-label { background: #8b7fd422; color: #8b7fd4; }
+/* 金句（accent 强调背景） */
+.cb-quote    { border-left: 3px solid var(--accent); background: var(--card-elevated); }
+.cb-quote    .cb-label { background: var(--accent); color: #fff; }
+.cb-quote    .cb-body p { font-weight: 600; }
