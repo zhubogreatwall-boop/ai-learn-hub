@@ -22,6 +22,9 @@ export default function DailyPage() {
             <div className="card-meta mt-1">
               <span className="tag tag-gray">{entry.day}</span>
               <span>{entry.date}</span>
+              {entry.author && (
+                <span className="tag tag-accent">{entry.author === "斗篷" ? "🧙 斗篷" : "🎪 大帽"}</span>
+              )}
             </div>
             <p className="card-summary">{entry.intro}</p>
           </article>

@@ -419,6 +419,11 @@ body {
   color: var(--text-muted);
   font-weight: 500;
 }
+.tag-accent {
+  background: var(--rank-3);
+  color: var(--accent);
+  font-weight: 600;
+}
 .heat {
   margin-left: auto;
   color: var(--success);

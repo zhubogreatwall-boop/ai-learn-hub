@@ -39,6 +39,9 @@ export default async function DiaryDetailPage({
       <div className="card-meta mb-4">
         <span className="tag tag-gray">{entry.day}</span>
         <span>{entry.date}</span>
+        {entry.author && (
+          <span className="tag tag-accent">{entry.author === "斗篷" ? "🧙 斗篷" : "🎪 大帽"}</span>
+        )}
       </div>
       <p className="text-[14px] text-[var(--text-secondary)] mb-4">
         {entry.intro}
