@@ -102,14 +102,14 @@ export const courses: CourseLesson[] = [
   },
 ];
 
-// ==================== 课程系列索引（课程页列表用） ====================
+// ==================== 课程系列索引（三级结构：系列 → 目录 → 讲次内容） ====================
 
 export interface SeriesLesson {
   no: string; // 讲次编号 "01"
   title: string; // 讲次标题
   summary: string; // 一句话简介
   status: "ready" | "pending"; // 已更新 / 待更新
-  href?: string; // 详情页链接（ready 时）
+  file?: string; // html 类型讲次的静态文件名（放 public/course/<系列>/ 下）
 }
 
 export interface CourseSeries {
@@ -117,6 +117,7 @@ export interface CourseSeries {
   title: string;
   desc: string;
   meta: string;
+  kind: "blocks" | "html"; // 讲次内容形式：图文块 / 静态 HTML
   lessons: SeriesLesson[];
 }
 
@@ -126,13 +127,13 @@ export const courseSeries: CourseSeries[] = [
     title: "《知识炼金术》图文系列课",
     desc: "把一个 19 万字的书，拆成一套可逐步消化的图文课。结构化展示 + 彩色语义框，不配图也能看清方法。",
     meta: "图文 · 持续更新",
+    kind: "blocks",
     lessons: [
       {
         no: "01",
         title: "什么是知识炼金术？为什么 AI 时代它更值钱",
         summary: "先讲清楚它到底是什么，和普通的信息整理差在哪。",
         status: "ready",
-        href: "#zs-01",
       },
     ],
   },
@@ -141,6 +142,7 @@ export const courseSeries: CourseSeries[] = [
     title: "PMBOK 第 8 版课程",
     desc: "从「标准」到「指南」——6 项原则、7 个项目绩效域、40 个演进流程，一讲一讲看懂 PMI 第 8 版知识体系的骨架与设计逻辑。",
     meta: "PMBOK8 · 共 27 讲",
+    kind: "html",
     lessons: [
       {
         no: "01",
@@ -148,7 +150,7 @@ export const courseSeries: CourseSeries[] = [
         summary:
           "一页看懂第 8 版全书骨架：两本书装订、6 项原则、7 个绩效域、40 个流程、5 个附录。",
         status: "ready",
-        href: "/course/pmbok8/01",
+        file: "01-overview.html",
       },
       ...Array.from({ length: 26 }, (_, i) => ({
         no: String(i + 2).padStart(2, "0"),
