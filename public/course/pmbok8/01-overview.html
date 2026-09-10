@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMBOK® 第8版 整体结构导览</title>
+<style>
+  :root{
+    --primary:#1e5eff;
+    --primary-dark:#0b3bbf;
+    --accent:#f59e0b;
+    --green:#10b981;
+    --purple:#8b5cf6;
+    --red:#ef4444;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --border:#e5e7eb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.75;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 80px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,#0b3bbf 0%,#1e5eff 55%,#4f8bff 100%);
+    border-radius:20px;color:#fff;padding:48px 44px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"8";position:absolute;right:24px;top:-60px;font-size:340px;font-weight:900;
+    color:rgba(255,255,255,.08);font-family:Georgia,serif;line-height:1;
+  }
+  .hero .tag{
+    display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;padding:4px 14px;font-size:13px;letter-spacing:1px;margin-bottom:18px;
+  }
+  .hero h1{font-size:36px;font-weight:800;margin-bottom:12px;}
+  .hero p{font-size:15px;max-width:640px;color:rgba(255,255,255,.92);}
+  .hero .meta{margin-top:22px;display:flex;gap:28px;flex-wrap:wrap;font-size:13px;}
+  .hero .meta b{font-size:20px;display:block;font-weight:800;}
+  .hero .meta span{color:rgba(255,255,255,.85);}
+
+  /* ---------- Section ---------- */
+  section{margin-top:44px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;}
+  .sec-head .num{
+    font-size:28px;font-weight:900;color:var(--primary);font-family:Georgia,serif;
+  }
+  .sec-head h2{font-size:22px;font-weight:800;}
+  .sec-head .sub{font-size:13px;color:var(--muted);}
+
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:26px 28px;box-shadow:0 1px 3px rgba(15,23,42,.05);
+  }
+
+  /* ---------- Two books ---------- */
+  .two-books{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:760px){.two-books{grid-template-columns:1fr;}}
+  .book{border-radius:16px;padding:26px;position:relative;color:#fff;}
+  .book.a{background:linear-gradient(160deg,#0b3bbf,#3b6ef5);}
+  .book.b{background:linear-gradient(160deg,#6d28d9,#8b5cf6);}
+  .book .b-title{font-size:19px;font-weight:800;margin-bottom:4px;}
+  .book .b-sub{font-size:12.5px;opacity:.85;margin-bottom:14px;}
+  .book ol{list-style:none;}
+  .book ol li{
+    background:rgba(255,255,255,.12);border-radius:10px;padding:9px 14px;margin-bottom:8px;
+    font-size:13.5px;display:flex;gap:10px;align-items:flex-start;
+  }
+  .book ol li .ch{
+    background:rgba(255,255,255,.25);border-radius:6px;min-width:44px;text-align:center;
+    font-size:11.5px;font-weight:700;padding:2px 6px;flex-shrink:0;margin-top:2px;
+  }
+  .book ol li b{font-weight:700;}
+  .book .hot{background:var(--accent);color:#7c2d12;font-weight:800;font-size:11px;
+    border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
+
+  /* ---------- Three layers ---------- */
+  .layer{border-radius:14px;padding:20px 24px;margin-bottom:14px;border-left:6px solid;}
+  .layer h3{font-size:16px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+  .layer .role{font-size:12px;color:var(--muted);margin-bottom:12px;}
+  .layer.l1{background:#eef4ff;border-color:var(--primary);}
+  .layer.l2{background:#fff7e8;border-color:var(--accent);}
+  .layer.l3{background:#ecfdf5;border-color:var(--green);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    background:#fff;border:1px solid var(--border);border-radius:999px;
+    padding:6px 14px;font-size:13px;font-weight:600;
+  }
+  .chip.c1{color:var(--primary-dark);}
+  .chip.c2{color:#b45309;}
+  .chip.c3{color:#047857;}
+  .arrow-down{text-align:center;color:var(--muted);font-size:20px;margin:-6px 0 8px;}
+
+  /* ---------- Performance domains ---------- */
+  .domains{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+  .domain{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:18px 20px;position:relative;overflow:hidden;
+  }
+  .domain::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--primary);
+  }
+  .domain:nth-child(2)::before{background:var(--accent);}
+  .domain:nth-child(3)::before{background:var(--green);}
+  .domain:nth-child(4)::before{background:var(--purple);}
+  .domain:nth-child(5)::before{background:#ec4899;}
+  .domain:nth-child(6)::before{background:#06b6d4;}
+  .domain:nth-child(7)::before{background:var(--red);}
+  .domain .d-emoji{font-size:24px;margin-bottom:6px;}
+  .domain h4{font-size:15.5px;font-weight:800;margin-bottom:6px;}
+  .domain p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+  .domain .flag{
+    display:inline-block;margin-top:10px;font-size:11px;font-weight:800;color:#b45309;
+    background:#fff7e8;border:1px solid #fde4bd;border-radius:6px;padding:2px 8px;
+  }
+  .domain{
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .domain:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(15,23,42,.10);}
+
+  .dom-note{
+    margin-top:16px;background:#eef4ff;border:1px dashed #b6ccf7;border-radius:12px;
+    padding:14px 18px;font-size:13.5px;color:#1e3a8a;
+  }
+
+  /* ---------- Lifecycle / focus areas ---------- */
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+  .fa{
+    flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:16px 14px;text-align:center;position:relative;margin-right:26px;
+  }
+  .fa:last-child{margin-right:0;}
+  .fa::after{
+    content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
+    color:var(--muted);font-size:18px;font-weight:700;
+  }
+  .fa:last-child::after{content:"";}
+  .fa .f-num{font-size:11px;font-weight:800;color:var(--primary);letter-spacing:1px;}
+  .fa h4{font-size:15px;font-weight:800;margin:4px 0 6px;}
+  .fa p{font-size:12px;color:var(--muted);}
+  @media (max-width:760px){
+    .fa{margin-right:0;margin-bottom:10px;flex-basis:100%;}
+    .fa::after{content:"";}
+  }
+
+  /* ---------- Appendices ---------- */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{
+    background:#f0f4ff;color:var(--primary-dark);text-align:left;font-weight:800;
+    padding:10px 14px;border-bottom:2px solid #d6e2fb;
+  }
+  td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td .x{
+    display:inline-block;background:var(--primary);color:#fff;border-radius:6px;
+    font-size:11px;font-weight:800;padding:1px 8px;margin-right:8px;
+  }
+  td.key{background:#fff7e8;}
+  td.key .x{background:var(--accent);color:#7c2d12;}
+
+  /* ---------- Changes ---------- */
+  .changes{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:760px){.changes{grid-template-columns:1fr;}}
+  .change{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:18px 20px;display:flex;gap:14px;align-items:flex-start;
+  }
+  .change .ico{
+    width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-size:19px;flex-shrink:0;
+  }
+  .change h4{font-size:14.5px;font-weight:800;margin-bottom:4px;}
+  .change p{font-size:12.5px;color:var(--muted);line-height:1.65;}
+  .ico.blue{background:#eef4ff;}
+  .ico.amber{background:#fff7e8;}
+  .ico.green{background:#ecfdf5;}
+  .ico.purple{background:#f3efff;}
+
+  /* ---------- Reading path ---------- */
+  .path{counter-reset:step;display:grid;grid-template-columns:1fr;gap:10px;}
+  .step{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:14px 18px 14px 58px;position:relative;font-size:14px;
+  }
+  .step::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:16px;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;
+  }
+  .step b{font-weight:800;}
+  .step .why{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
+
+  footer{
+    margin-top:56px;text-align:center;font-size:12px;color:var(--muted);
+    border-top:1px solid var(--border);padding-top:24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="tag">学习导览 · 基于《PMBOK® 指南(第8版)》中文版</div>
+    <h1>PMBOK® 第 8 版<br>整体结构一页通</h1>
+    <p>从「标准」到「指南」，从 6 项原则到 7 个绩效域、40 个流程——用一张地图看懂 PMI 第 8 版知识体系的骨架与设计逻辑。</p>
+    <div class="meta">
+      <div><b>6</b><span>项目管理原则</span></div>
+      <div><b>5</b><span>关注领域</span></div>
+      <div><b>7</b><span>项目绩效域</span></div>
+      <div><b>40</b><span>演进流程</span></div>
+      <div><b>5</b><span>附录(X1–X5)</span></div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>全书骨架:两本书装订在一起</h2>
+      <span class="sub">先讲"为什么做",再讲"怎么做"</span>
+    </div>
+    <div class="two-books">
+      <div class="book a">
+        <div class="b-title">第 1 部分 ·《项目管理标准》</div>
+        <div class="b-sub">ANSI 标准 · 回答"什么是项目管理"——思想与原则层</div>
+        <ol>
+          <li><span class="ch">第1章</span><span><b>引言</b> — 术语定义;项目组合 / 项目集 / 项目的关系</span></li>
+          <li><span class="ch">第2章</span><span><b>价值交付系统</b> — 价值创造、项目环境(EEF/OPA)、项目职能与角色</span></li>
+          <li><span class="ch">第3章</span><span><b>项目管理原则</b> — 全书思想内核,共 6 项原则 <span class="hot">精读</span></span></li>
+          <li><span class="ch">第4章</span><span><b>项目生命周期</b> — 开发方法谱系(预测/适应/混合)、交付节奏、5 个关注领域</span></li>
+        </ol>
+      </div>
+      <div class="book b">
+        <div class="b-title">第 2 部分 ·《PMBOK® 指南》</div>
+        <div class="b-sub">实践指南 · 回答"项目上具体怎么做"——操作与实践层</div>
+        <ol>
+          <li><span class="ch">第1章</span><span><b>引言</b> — 指南结构与本版变更说明</span></li>
+          <li><span class="ch">第2章</span><span><b>项目管理绩效域</b> — 全书篇幅最大:7 个绩效域、40 个流程 <span class="hot">核心</span></span></li>
+          <li><span class="ch">第3章</span><span><b>裁剪</b> — 如何为组织和具体项目裁剪方法</span></li>
+          <li><span class="ch">第4章</span><span><b>输入及输出</b> — 速查性质</span></li>
+          <li><span class="ch">第5章</span><span><b>工具与技术</b> — 速查性质</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>核心设计:三层体系如何咬合</h2>
+      <span class="sub">第8版 = 第6版的骨架 + 第7版的灵魂</span>
+    </div>
+    <div class="card">
+      <div class="layer l1">
+        <h3>🧭 第 1 层 · 6 项项目管理原则 <span style="font-size:12px;font-weight:600;color:#3b6ef5;">指导一切</span></h3>
+        <div class="role">源自《项目管理标准》第3章,是所有决策与行为的上位依据</div>
+        <div class="chips">
+          <span class="chip c1">整体视角(系统思考)</span>
+          <span class="chip c1">关注价值</span>
+          <span class="chip c1">质量融入过程与成果</span>
+          <span class="chip c1">负责任的领导力</span>
+          <span class="chip c1">可持续性</span>
+          <span class="chip c1">赋能文化与团队</span>
+        </div>
+      </div>
+      <div class="arrow-down">▼</div>
+      <div class="layer l2">
+        <h3>🧭 第 2 层 · 5 个关注领域 <span style="font-size:12px;font-weight:600;color:#b45309;">何时做</span></h3>
+        <div class="role">源自《标准》第4章——对第6版"过程组"的重新界定,<b>不再叫过程组</b></div>
+        <div class="chips">
+          <span class="chip c2">启动</span>
+          <span class="chip c2">规划</span>
+          <span class="chip c2">执行</span>
+          <span class="chip c2">监督与控制</span>
+          <span class="chip c2">收尾</span>
+        </div>
+      </div>
+      <div class="arrow-down">▼</div>
+      <div class="layer l3">
+        <h3>🧭 第 3 层 · 7 个项目绩效域 <span style="font-size:12px;font-weight:600;color:#047857;">做什么 / 管什么</span></h3>
+        <div class="role">指南第2章,每个域内含流程,全书共 <b>40 个演进流程</b>;每个域小节结构统一:<b>关键概念 → 流程 → 裁剪 → 与其他域互动 → 检查结果</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>7 个绩效域逐一拆解</h2>
+      <span class="sub">命名明显向第6版知识领域回归</span>
+    </div>
+    <div class="domains">
+      <div class="domain">
+        <div class="d-emoji">🏛️</div>
+        <h4>治理绩效域</h4>
+        <p>决策框架、监督与问责机制,让项目在正确的轨道上运转。</p>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">📐</div>
+        <h4>范围绩效域</h4>
+        <p>需求收集、范围界定与WBS,确保"做且只做所需之事"。</p>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">⏱️</div>
+        <h4>进度绩效域</h4>
+        <p>活动排序、估算与进度管理,按时交付。</p>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">💰</div>
+        <h4>财务绩效域</h4>
+        <p>预算、成本与收益管理。</p>
+        <span class="flag">★ 第8版新增独立成域</span>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">🤝</div>
+        <h4>利益相关方绩效域</h4>
+        <p>识别、参与和管理利益相关方,维系支持与信任。</p>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">👥</div>
+        <h4>资源绩效域</h4>
+        <p>人力、物料与设施的获取、开发与管理。</p>
+      </div>
+      <div class="domain">
+        <div class="d-emoji">⚠️</div>
+        <h4>风险绩效域</h4>
+        <p>不确定性识别、分析与应对,化风险为机会。</p>
+      </div>
+    </div>
+    <div class="dom-note">
+      💡 <b>看点:</b>「财务」首次独立成为绩效域——这与 2026 新考纲中"业务环境"权重从 8% 跃升至 26% 直接呼应,不是巧合。PMI 的信号:项目经理要从执行者升级为懂商业的战略伙伴。
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>生命周期与关注领域</h2>
+      <span class="sub">开发方法谱系 + 交付节奏</span>
+    </div>
+    <div class="card">
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;">
+        第8章 lifecycle 内容:项目生命周期由<b>开发方法</b>(预测型 → 混合型 → 适应型谱系)与<b>交付节奏</b>(一次性 / 多次 / 周期性)共同决定,5 个关注领域贯穿其间:
+      </p>
+      <div class="flow">
+        <div class="fa"><div class="f-num">FOCUS 1</div><h4>启动</h4><p>定义项目、获得授权</p></div>
+        <div class="fa"><div class="f-num">FOCUS 2</div><h4>规划</h4><p>明确路线与基准</p></div>
+        <div class="fa"><div class="f-num">FOCUS 3</div><h4>执行</h4><p>完成工作、交付成果</p></div>
+        <div class="fa"><div class="f-num">FOCUS 4</div><h4>监督与控制</h4><p>监控偏差、实施变更</p></div>
+        <div class="fa"><div class="f-num">FOCUS 5</div><h4>收尾</h4><p>移交成果、总结经验</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>附录一览</h2>
+      <span class="sub">X2、X3 是本版的隐藏重点</span>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <tr><th style="width:130px;">附录</th><th>内容</th><th style="width:220px;">价值提示</th></tr>
+        <tr><td><span class="x">X1</span>贡献者</td><td>本书编写与评审人员名单</td><td>了解即可</td></tr>
+        <tr class=""><td><span class="x">X2</span>项目管理办公室(PMO)</td><td>PMO 的类型、职能与价值</td><td>组织级考点,常考</td></tr>
+        <tr><td class="key"><span class="x">X3</span>人工智能</td><td class="key">AI 在项目管理中的应用:辅助规划、估算、风险预测、决策支持与伦理考量</td><td class="key">🔥 新考纲正式考点,建议精读</td></tr>
+        <tr><td><span class="x">X4</span>采购</td><td>采购与合同管理补充内容</td><td>实践参考</td></tr>
+        <tr><td><span class="x">X5</span>发展历程</td><td>PMBOK 从第1版到第8版的演进</td><td>理解版本脉络</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 6 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">06</span>
+      <h2>本版四大关键变化</h2>
+      <span class="sub">对照第 6 / 7 版</span>
+    </div>
+    <div class="changes">
+      <div class="change">
+        <div class="ico blue">💰</div>
+        <div>
+          <h4>「财务」首次独立成域</h4>
+          <p>呼应新考纲"业务环境"权重 8% → 26% 的跃升,项目经理需具备收益、预算与商业论证能力。</p>
+        </div>
+      </div>
+      <div class="change">
+        <div class="ico purple">🧬</div>
+        <div>
+          <h4>绩效域命名向第6版回归</h4>
+          <p>范围、进度、风险等知识领域式命名重新出现——"第6版的骨架 + 第7版的原则灵魂"的融合。</p>
+        </div>
+      </div>
+      <div class="change">
+        <div class="ico green">🌱</div>
+        <div>
+          <h4>可持续性升级为原则</h4>
+          <p>成为 6 项原则之一,ESG 与可持续项目管理贯穿全书,并配套 CSPP™ 认证。</p>
+        </div>
+      </div>
+      <div class="change">
+        <div class="ico amber">🤖</div>
+        <div>
+          <h4>AI 进入附录 X3</h4>
+          <p>AI 未进正文绩效域,但作为新考纲正式考点放在附录 X3——考的不是写代码,而是如何在项目中负责任地用 AI。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7 -->
+  <section>
+    <div class="sec-head">
+      <span class="num">07</span>
+      <h2>推荐阅读路径</h2>
+      <span class="sub">备考 2026 年 12 月大陆新考纲版</span>
+    </div>
+    <div class="card">
+      <div class="path">
+        <div class="step"><b>《标准》第3章 — 项目管理原则</b><span class="why">全书思想内核,6 项原则是所有情境题的判断依据</span></div>
+        <div class="step"><b>《标准》第4章 — 项目生命周期</b><span class="why">建立开发方法谱系与 5 个关注领域的整体地图</span></div>
+        <div class="step"><b>《指南》第2章 — 逐个绩效域精读</b><span class="why">按"关键概念→流程→裁剪→互动→检查结果"统一结构推进,重点吃透财务域</span></div>
+        <div class="step"><b>附录 X3 — 人工智能</b><span class="why">新考纲正式考点,理解 AI 辅助项目管理的场景与伦理</span></div>
+        <div class="step"><b>附录 X2 — PMO</b><span class="why">组织级治理高频考点,时间充裕时补读</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    基于《PMBOK® 指南(第 8 版)》中文版目录与结构梳理 · 学习导览材料 · 内容为摘要与解读,非原文复制<br>
+    PMBOK® 与 PMI® 为 Project Management Institute, Inc. 注册商标
+  </footer>
+</div>
+</body>
+</html>
