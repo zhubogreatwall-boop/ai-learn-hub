@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Node-side tooling/scratch (CommonJS by design, run via `node`, never bundled):
+    "scripts/**",
   ]),
 ]);
 

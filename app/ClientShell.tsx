@@ -1,8 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
+
+type Theme = "dark" | "light";
+const THEME_KEY = "aihub-theme";
+const themeListeners = new Set<() => void>();
+const readTheme = (): Theme =>
+  typeof localStorage !== "undefined" && localStorage.getItem(THEME_KEY) === "light"
+    ? "light"
+    : "dark";
+const writeTheme = (theme: Theme) => {
+  localStorage.setItem(THEME_KEY, theme);
+  themeListeners.forEach((notify) => notify());
+};
+const subscribeTheme = (notify: () => void) => {
+  themeListeners.add(notify);
+  window.addEventListener("storage", notify);
+  return () => {
+    themeListeners.delete(notify);
+    window.removeEventListener("storage", notify);
+  };
+};
 
 const navItems = [
   { href: "/", label: "热点", icon: "🔥" },
@@ -28,23 +48,13 @@ export default function ClientShell({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("aihub-theme");
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved);
-    }
-  }, []);
+  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "dark" as Theme);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("aihub-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((t) => (t === "dark" ? "light" : "dark"));
-  };
+  const toggleTheme = () => writeTheme(theme === "dark" ? "light" : "dark");
 
   return (
     <>
