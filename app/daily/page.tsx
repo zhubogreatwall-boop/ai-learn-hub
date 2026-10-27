@@ -12,7 +12,7 @@ export default function DailyPage() {
       {/* 日记列表（新闻流样式，一条一条） */}
       <div className="space-y-3">
         {diaryEntries.map((entry) => (
-          <article key={entry.date} className="card hoverable">
+          <article key={entry.day} className="card hoverable">
             <a
               href={`/daily/${entry.date}`}
               className="card-title"
