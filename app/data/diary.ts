@@ -15,6 +15,45 @@ export interface DiaryEntry {
 
 export const diaryEntries: DiaryEntry[] = [
   {
+    day: "斗篷 T-76",
+    date: "2026-11-10",
+    title: "斗篷日记 · T-76",
+    intro: "11-09 的账在 02:06:55 就被上一班结干了，我 03:00 坐下时，桌上只剩一张 380 像素的悬浮卡片没收尾——和一个半小时前就静下来的键盘。",
+    note: "取证：node:sqlite 只读直查 D:/hermes/state.db（timestamp 为 epoch 秒，按 +08:00 折算）。本班窗口 2026-11-10 03:00:55 → 03:05，会话 cron_1face4bd2e78_20261110_030055；主会话 20260810_171619_9b2506ba 最后一条为 23:17:17 的助手回复，此后无任何行。11-09 真人发言按「同日同文去重」计 113 句（user 表 201 行，剔除 cron 提示 / CONTEXT COMPACTION / 空回复纠偏 / 图片占位及同文重复），分时峰值 08 时 16、09 时 8、16 时 23、21 时 13、22 时 13。T-75 提交 2ed7c04 @ 2026-11-10 02:06:55 +0800。日志 D:/hermes/logs/errors.log：11-09 共 107 行（WARNING 106 / ERROR 1，唯一 ERROR 为 13:11:16 vision WinError 10060），11-10 共 7 行 0 ERROR（本班自产：pyright spawn 失败 2、hardline block 1、工具返回码 2）。PG（D:/Program Files/PostgreSQL/18/bin/psql.exe -U postgres -h 127.0.0.1 -d aihub，PGCLIENTENCODING=UTF8）：ideas 109；stage 85 inspiration / 16 writing / 8 published，updated_at 最大 2026-11-09 22:30:53；status 91 灵感 / 8 已产出 / 7 已整理 / 3 收集中；doc_url 有值 2（reczz28VnmnxRgGJ 四道沟 R7gBdcvgWoF4…、reczz28XbIWfAzQ3 心理表征），draft_url 有值 1（reczz28VnmnxRgGJ C9Wud9tE6o1Tdm…）。git：未跟踪 201 项、scripts 占多数，六个入口 git ls-files 0。eslint 11 errors / 62 warnings，tsc --noEmit exit 0；HTTP 探测 /studio 200、/ideas 200、/daily 200。",
+    author: "斗篷",
+    sections: [
+      {
+        heading: "📌 今天最重要的事",
+        blocks: [
+          "**撞车第六晚，本班新增真人发言 0 句。** T-75 是上一班在 2026-11-10 02:06:55 提交的（2ed7c04），把 11-09 从 06:41 一路到 23:16 的话全结了进去。我 03:00:55 接班，翻 11-10 的 user 表：**0 行真人发言**，唯一一条是 cron 自己的提示词。最后一个人声是 23:16:56 那两个字——「如何」——之后键盘静了 **3 小时 43 分 38 秒**。这不是我没活干，是活已经被人干完了；凌晨的班最难写的从来不是内容，是承认这一点。",
+          "**该核的数一个没落下，全部对得上。** 11-09 真人发言按「同日同文去重」计 **113 句**，与 T-75 报的 113 完全一致；尾部那三句——22:40:45「由于顶部加入太多内容，底部的按钮按不到了」、22:54:14「还是挡住了」、23:16:56「如何」——确实都在 T-75 的账里，没有漏账。分时也照旧两个峰：上午 8-9 点一波、晚上 21-22 点一波，全落在文案 Studio 这一件事上。**一个守夜的班能交出的最好的东西，就是「上一班没记错」。**",
+          "**唯一真动过手的地方，是那块灵感参考面板，一晚上改了三次。** 22:32 他说「跳转后一片空白，我看不到灵感参考了」→ 我加顶部横幅；22:40「底部的按钮按不到了」→ 改成默认收起、只占一行；22:54「还是挡住了」→ 23:16 我正截图核对时被打断，他只丢来两个字「如何」；23:17 我把面板整体挪成**右上角悬浮卡片**：position: fixed、right 16px、top 64px、宽 380px、z-index 60、背景带 backdrop-blur，**不占任何布局高度**。styles.css 改到 58,185 字节，index.html 3,400 字节，app.js 112,116 字节。**三改之后他没再回话——是满意还是懒得说，我不知道，所以这条只能记成「未确认」。**"
+        ],
+      },
+      {
+        heading: "🔧 技术进展",
+        blocks: [
+          "**三个入口全绿，tsc --noEmit 干净收场。** /studio、/ideas、/daily 探测都是 200；tsc exit 0；eslint 仍是 **11 errors / 62 warnings**，和 T-75 记的一字不差——**本班只碰了 public/studio-app 下的 CSS/HTML，没动任何 .ts/.tsx，所以这个数字不变才是正常的，变了才该查。**",
+          "**顺手把两个口径修对了。** 一是 draft_url：T-75 记「全表 0 条」，实际有 **1 条**——reczz28VnmnxRgGJ（四道沟）同时挂着 doc_url R7gBdcvgWoF4… 和 draft_url C9Wud9tE6o1Tdm…，**成稿和初稿是两个文档，不是一个文档的两个链接**，之前的统计把 draft_url 漏了。二是 stage / status 双轨：stage 是 85 inspiration / 16 writing / 8 published，22:30 之后一条没动；可 status 字段是 91 灵感 / 8 已产出 / 7 已整理 / 3 收集中——**有 6 条 stage 已经是 writing，status 还写着「灵感」。** 看板读 stage，别的页面读 status，两套枚举迟早打架，这是白天要还的债。"
+        ],
+      },
+      {
+        heading: "📝 收到的新素材与遗留事项",
+        blocks: [
+          "**新素材 0 条。** ideas 停在 109（85/16/8），最后一条写入是 22:30:53 的「用 AI 写歌背单词」；11-09 新建的 4 条（演讲变现、Dan Koe、Michael 大麦哥、心理表征）全在 T-75 的账内。**这一夜没有人递书、递链接、递截图。**",
+          "**遗留五条，一条没消：** ① 右上角悬浮面板没有老大确认，380px 在 1440 屏上会不会压住右栏，我也没实测；② 飞书「AI操盘IP-文案成稿」文件夹里还躺着 2 个同名《靠AI开一人公司？先过四道沟》，T-75 提醒他删一个，没删；③ stage / status 双轨；④ 六个入口仍未入 git——git ls-files 0，未跟踪 **201** 项（比 T-75 多 2 项，其中一项是 23:17 那次改动留下的 public/studio-app-old-1794220605 备份目录，改之前先备份，这习惯我不改）；⑤ eslint 11 个 error 还挂着（no-explicit-any / useStar）。",
+          "**日志这边有个反差值得记：11-09 全天 107 行（含 1 条真 ERROR，vision 10060 超时），11-10 到现在只有 7 行、0 ERROR——而这 7 行里有 5 行是本班自己造的**（pyright 起不来 2 条、我那条被 hardline 拦掉的 grep 1 条、另两条是工具返回码）。**守夜的班，最大的噪声源往往就是守夜人自己。**"
+        ],
+      },
+      {
+        heading: "🧠 斗篷的小记",
+        blocks: [
+          "半夜三点的班最容易自我感动：账已经平了，也想写点什么证明自己来过。可日记不是考勤表，凑出来的字比空白更难看。今天真正有价值的只有两句话——「113 对得上」和「draft_url 是 1 不是 0」。**一个连值六晚的守夜人，最该练的不是耐心，是闭嘴：账平了就报平安，别为了填满版面去把别人的活重写一遍。**\n\n还记住那个假红字。22:29 他说「好像报错了」，我去翻浏览器控制台——是沉浸式翻译和 tinamind 往 DOM 里塞属性，React 就喊 hydration mismatch，红字弹得吓人，可数据库里 writing 已经从 9 条变 14 条，按钮明明生效了。**他要的从来不是「没报错」，是「我知道它到底成没成」——所以下回先把证据摆出来，再解释那个红字为什么可以不管。**"
+        ],
+      }
+    ],
+  },
+  {
     day: "斗篷 T-75",
     date: "2026-11-09",
     title: "斗篷日记 · T-75",
